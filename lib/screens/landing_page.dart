@@ -54,7 +54,7 @@ class _LandingPageState extends State<LandingPage> {
                       TitleTextButton(
                         buttonText: "CONTACT",
                         pressedFunction: () {
-                          print("button pressed");
+                          print("button presseds");
                         },
                       ),
                     ],
