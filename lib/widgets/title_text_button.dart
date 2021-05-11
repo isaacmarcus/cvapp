@@ -13,12 +13,12 @@ class TitleTextButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+      // padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
       child: TextButton(
         onPressed: pressedFunction,
         child: Text(
           buttonText,
-          style: themeData.textTheme.headline1,
+          style: themeData.textTheme.headline5,
         ),
       ),
     );

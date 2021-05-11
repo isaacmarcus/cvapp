@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 const kScreenTitlePadding = EdgeInsets.all(15);
+const kMasterPadding = EdgeInsets.all(60);
 
 ThemeData themeData = ThemeData(
   fontFamily: "RobotoMono",
@@ -14,6 +15,11 @@ ThemeData themeData = ThemeData(
   cardColor: Colors.white,
   textTheme: TextTheme(
     headline1: TextStyle(
+      color: Color(0xFFeeeeee),
+      fontSize: 55,
+      fontWeight: FontWeight.w500,
+    ),
+    headline5: TextStyle(
       color: Color(0xFFeeeeee),
       fontSize: 18,
       fontWeight: FontWeight.w200,

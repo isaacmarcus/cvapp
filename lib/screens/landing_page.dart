@@ -1,4 +1,5 @@
 import 'package:cvapp/constants.dart';
+import 'package:cvapp/widgets/master_app_bar.dart';
 import 'package:cvapp/widgets/title_text_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -16,60 +17,22 @@ class _LandingPageState extends State<LandingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
+        child: MasterAppBar(),
         preferredSize: Size.fromHeight(100),
-        child: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          flexibleSpace: Center(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 60),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Isaac Marcus",
-                    style: themeData.textTheme.headline1,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      TitleTextButton(
-                        buttonText: "HOME",
-                        pressedFunction: () {
-                          print("button pressed");
-                        },
-                      ),
-                      TitleTextButton(
-                        buttonText: "ABOUT",
-                        pressedFunction: () {
-                          print("button pressed");
-                        },
-                      ),
-                      TitleTextButton(
-                        buttonText: "WORK",
-                        pressedFunction: () {
-                          print("button pressed");
-                        },
-                      ),
-                      TitleTextButton(
-                        buttonText: "CONTACT",
-                        pressedFunction: () {
-                          print("button presseds");
-                        },
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
       ),
       extendBodyBehindAppBar: true,
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[],
+        child: Padding(
+          padding: kMasterPadding,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                "TECHNOLOGY, AUDIO, DESIGN",
+                style: themeData.textTheme.headline1,
+              )
+            ],
+          ),
         ),
       ),
     );
