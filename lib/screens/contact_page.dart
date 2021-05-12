@@ -46,7 +46,9 @@ class _ContactPageState extends State<ContactPage>
     return Scaffold(
       appBar: PreferredSize(
         child: MasterAppBar(drawerSlideController: _drawerSlideController),
-        preferredSize: kAppBarHeight,
+        preferredSize: MediaQuery.of(context).size.width >= 725
+            ? kAppBarHeightL
+            : kAppBarHeightS,
       ),
       extendBodyBehindAppBar: true,
       body: Stack(

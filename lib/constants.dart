@@ -7,7 +7,11 @@ import 'Screens/work_page.dart';
 
 const kScreenTitlePadding = EdgeInsets.all(15);
 const kMasterPadding = EdgeInsets.all(60);
-const kAppBarHeight = Size.fromHeight(100);
+const kAppBarHeightL = Size.fromHeight(100);
+const kAppBarHeightS = Size.fromHeight(60);
+
+const kSymPadLarge = EdgeInsets.symmetric(horizontal: 60);
+const kSymPadSmall = EdgeInsets.symmetric(horizontal: 28);
 
 const kMenuTitles = [
   ['HOME', LandingPage.id],

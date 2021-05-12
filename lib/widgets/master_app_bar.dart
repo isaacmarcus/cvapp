@@ -1,3 +1,4 @@
+import 'package:cvapp/constants.dart';
 import 'package:cvapp/screens/landing_page.dart';
 import 'package:cvapp/widgets/full_screen_appbar_row.dart';
 import 'package:cvapp/widgets/title_text_button.dart';
@@ -47,7 +48,9 @@ class _MasterAppBarState extends State<MasterAppBar>
         elevation: 0,
         flexibleSpace: Center(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 60),
+            padding: MediaQuery.of(context).size.width >= 725
+                ? kSymPadLarge
+                : kSymPadSmall,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -55,7 +58,6 @@ class _MasterAppBarState extends State<MasterAppBar>
                   buttonText: "Isaac Marcus",
                   pressedFunction: () {
                     Navigator.pushReplacementNamed(context, LandingPage.id);
-                    print("button pressed");
                     if (isDrawerOpen()) {
                       toggleDrawer();
                     }
