@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 const kScreenTitlePadding = EdgeInsets.all(15);
 const kMasterPadding = EdgeInsets.all(60);
+const kAppBarHeight = Size.fromHeight(100);
 
 ThemeData themeData = ThemeData(
   fontFamily: "RobotoMono",

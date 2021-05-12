@@ -6,8 +6,8 @@ class TitleTextButton extends StatelessWidget {
   final Function pressedFunction;
 
   const TitleTextButton({
-    @required this.buttonText,
-    @required this.pressedFunction,
+    required this.buttonText,
+    required this.pressedFunction,
   });
 
   @override
@@ -15,7 +15,9 @@ class TitleTextButton extends StatelessWidget {
     return Container(
       // padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
       child: TextButton(
-        onPressed: pressedFunction,
+        onPressed: () {
+          pressedFunction();
+        },
         child: Text(
           buttonText,
           style: themeData.textTheme.headline5,
