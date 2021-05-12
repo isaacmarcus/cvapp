@@ -1,10 +1,14 @@
 import 'package:cvapp/constants.dart';
 import 'package:cvapp/widgets/menu_drawer.dart';
 import 'package:cvapp/widgets/master_app_bar.dart';
-import 'package:cvapp/widgets/title_text_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:cvapp/constants.dart';
+
+/* --------------------------------------------------------------------------
+
+Page Title: Landing Page
+Widget Description: Landing Page to welcome visitors
+
+-----------------------------------------------------------------------------*/
 
 class LandingPage extends StatefulWidget {
   static const String id = "landing_page";
@@ -64,9 +68,12 @@ class _LandingPageState extends State<LandingPage>
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              "TECHNOLOGY, AUDIO, DESIGN",
-              style: themeData.textTheme.headline1,
+            Hero(
+              tag: "title",
+              child: Text(
+                "TECHNOLOGY, AUDIO, DESIGN",
+                style: themeData.textTheme.headline1,
+              ),
             )
           ],
         ),
@@ -80,7 +87,11 @@ class _LandingPageState extends State<LandingPage>
       builder: (context, child) {
         return FractionalTranslation(
           translation: Offset(1.0 - _drawerSlideController.value, 0.0),
-          child: _isDrawerClosed() ? const SizedBox() : Menu(),
+          child: _isDrawerClosed()
+              ? const SizedBox()
+              : Menu(
+                  dsController: _drawerSlideController,
+                ),
         );
       },
     );

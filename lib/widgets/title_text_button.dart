@@ -1,6 +1,14 @@
 import 'package:cvapp/constants.dart';
 import 'package:flutter/material.dart';
 
+/* --------------------------------------------------------------------------
+
+Widget Title: Clickable Text Button
+Widget Description: Widget for text button that requires a function and 
+text to be passed to it
+
+-----------------------------------------------------------------------------*/
+
 class TitleTextButton extends StatelessWidget {
   final String buttonText;
   final Function pressedFunction;
@@ -13,7 +21,6 @@ class TitleTextButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
       child: TextButton(
         onPressed: () {
           pressedFunction();
