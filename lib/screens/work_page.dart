@@ -1,10 +1,103 @@
+import 'package:cvapp/constants.dart';
+import 'package:cvapp/widgets/menu_drawer.dart';
+import 'package:cvapp/widgets/master_app_bar.dart';
 import 'package:flutter/material.dart';
 
-class WorkPage extends StatelessWidget {
-  static const id = "work_page";
+/* --------------------------------------------------------------------------
+
+Page Title: Work Page
+Widget Description: Work Page to display work
+
+-----------------------------------------------------------------------------*/
+
+class WorkPage extends StatefulWidget {
+  static const String id = "work_page";
+
+  @override
+  _WorkPageState createState() => _WorkPageState();
+}
+
+class _WorkPageState extends State<WorkPage>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _drawerSlideController;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _drawerSlideController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 150),
+    );
+  }
+
+  @override
+  void dispose() {
+    _drawerSlideController.dispose();
+    super.dispose();
+  }
+
+  bool _isDrawerClosed() {
+    return _drawerSlideController.value == 0.0;
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: PreferredSize(
+        child: MasterAppBar(drawerSlideController: _drawerSlideController),
+        preferredSize: kAppBarHeight,
+      ),
+      extendBodyBehindAppBar: true,
+      body: Stack(
+        children: [
+          // Main page body content
+          _buildContent(),
+          // Stacked Menu
+          _buildDrawer(),
+        ],
+      ),
+    );
+  }
+
+  // Page Content
+  Widget _buildContent() {
+    return Center(
+      child: Padding(
+        padding: kMasterPadding,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            SizedBox(
+              height: 100,
+            ),
+            Hero(
+              tag: "title",
+              child: Text(
+                "Here's some of my work",
+                style: themeData.textTheme.headline1,
+                textAlign: TextAlign.start,
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildDrawer() {
+    return AnimatedBuilder(
+      animation: _drawerSlideController,
+      builder: (context, child) {
+        return FractionalTranslation(
+          translation: Offset(1.0 - _drawerSlideController.value, 0.0),
+          child: _isDrawerClosed()
+              ? const SizedBox()
+              : Menu(
+                  dsController: _drawerSlideController,
+                ),
+        );
+      },
+    );
   }
 }
