@@ -66,15 +66,19 @@ class _AboutPageState extends State<AboutPage>
   Widget _buildContent() {
     return Center(
       child: Padding(
-        padding: kMasterPadding,
+        padding: MediaQuery.of(context).size.width >= 725
+            ? kMasterPaddingL
+            : kMasterPaddingS,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
             Hero(
               tag: "title",
               child: Text(
-                "ABOUT ME.",
-                style: themeData.textTheme.headline1,
+                "ABOUT ME",
+                style: MediaQuery.of(context).size.width >= 725
+                    ? themeData.textTheme.headline1
+                    : themeData.textTheme.headline2,
               ),
             )
           ],

@@ -66,7 +66,9 @@ class _ContactPageState extends State<ContactPage>
   Widget _buildContent() {
     return Center(
       child: Padding(
-        padding: kMasterPadding,
+        padding: MediaQuery.of(context).size.width >= 725
+            ? kMasterPaddingL
+            : kMasterPaddingS,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
@@ -77,7 +79,9 @@ class _ContactPageState extends State<ContactPage>
               tag: "title",
               child: Text(
                 "CONTACT",
-                style: themeData.textTheme.headline1,
+                style: MediaQuery.of(context).size.width >= 725
+                    ? themeData.textTheme.headline1
+                    : themeData.textTheme.headline2,
               ),
             )
           ],

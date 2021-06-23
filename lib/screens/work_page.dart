@@ -64,25 +64,28 @@ class _WorkPageState extends State<WorkPage>
 
   // Page Content
   Widget _buildContent() {
-    return Center(
-      child: Padding(
-        padding: kMasterPadding,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            SizedBox(
-              height: 100,
+    return Padding(
+      padding: MediaQuery.of(context).size.width >= 725
+          ? kMasterPaddingL
+          : kMasterPaddingS,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          SizedBox(
+            height: 100,
+          ),
+          Hero(
+            tag: "title",
+            child: Text(
+              "Here's some of my work",
+              style: MediaQuery.of(context).size.width >= 725
+                  ? themeData.textTheme.headline1
+                  : themeData.textTheme.headline2,
+              textAlign: TextAlign.start,
             ),
-            Hero(
-              tag: "title",
-              child: Text(
-                "Here's some of my work",
-                style: themeData.textTheme.headline1,
-                textAlign: TextAlign.start,
-              ),
-            )
-          ],
-        ),
+          )
+        ],
       ),
     );
   }

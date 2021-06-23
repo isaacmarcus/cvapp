@@ -1,6 +1,9 @@
+import 'dart:ui';
+
 import 'package:cvapp/constants.dart';
 import 'package:cvapp/widgets/menu_drawer.dart';
 import 'package:cvapp/widgets/master_app_bar.dart';
+import 'package:cvapp/widgets/moire_box.dart';
 import 'package:flutter/material.dart';
 
 /* --------------------------------------------------------------------------
@@ -53,8 +56,47 @@ class _LandingPageState extends State<LandingPage>
       extendBodyBehindAppBar: true,
       body: Stack(
         children: [
+          Hero(
+            tag: "MoireBox2",
+            child: MoireBox(
+              scrnContext: context,
+              numberOfBoxes: 30,
+              borderColour: Colors.red[400],
+              boxRadius: 0,
+              boxWidth: MediaQuery.of(context).size.width >= 725
+                  ? 435
+                  : MediaQuery.of(context).size.width * 0.6,
+              boxHeight: MediaQuery.of(context).size.height * 0.7,
+              xPosition: 28,
+              yPosition: MediaQuery.of(context).size.width >= 725
+                  ? (-kAppBarHeightDoubleL / 2) + 27
+                  : (-kAppBarHeightDoubleS / 2) + 27,
+            ),
+          ),
+          Hero(
+            tag: "MoireBox1",
+            child: MoireBox(
+              scrnContext: context,
+              numberOfBoxes: 30,
+              borderColour: Colors.amber[300],
+              boxRadius: 0,
+              boxWidth: MediaQuery.of(context).size.width >= 725
+                  ? 435
+                  : MediaQuery.of(context).size.width * 0.6,
+              boxHeight: MediaQuery.of(context).size.height * 0.7,
+              xPosition: -28,
+              yPosition: MediaQuery.of(context).size.width >= 725
+                  ? (-kAppBarHeightDoubleL / 2) - 27
+                  : (-kAppBarHeightDoubleS / 2) - 27,
+            ),
+          ),
           // Main page body content
-          _buildContent(),
+          Container(
+            color: Colors.transparent,
+            child: BackdropFilter(
+                filter: new ImageFilter.blur(sigmaX: 0.6, sigmaY: 0.6),
+                child: _buildContent()),
+          ),
           // Stacked Menu
           _buildDrawer(),
         ],
@@ -64,21 +106,26 @@ class _LandingPageState extends State<LandingPage>
 
   // Page Content
   Widget _buildContent() {
-    return Center(
-      child: Padding(
-        padding: kMasterPadding,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Hero(
-              tag: "title",
+    return Padding(
+      padding: MediaQuery.of(context).size.width >= 725
+          ? kMasterPaddingL
+          : kMasterPaddingS,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Hero(
+            tag: "title",
+            child: Center(
               child: Text(
                 "TECHNOLOGY, AUDIO, DESIGN",
-                style: themeData.textTheme.headline1,
+                style: MediaQuery.of(context).size.width >= 725
+                    ? themeData.textTheme.headline1
+                    : themeData.textTheme.headline2,
               ),
-            )
-          ],
-        ),
+            ),
+          )
+        ],
       ),
     );
   }
