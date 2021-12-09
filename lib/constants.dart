@@ -7,6 +7,7 @@ import 'Screens/splash_page.dart';
 import 'Screens/work_page.dart';
 
 const kScreenTitlePadding = EdgeInsets.all(15);
+const kMasterBodyPaddingL = EdgeInsets.all(200);
 const kMasterPaddingL = EdgeInsets.all(60);
 const kMasterPaddingS = EdgeInsets.all(28);
 const kAppBarHeightDoubleL = 100.0;
@@ -29,7 +30,6 @@ ThemeData themeData = ThemeData(
   scaffoldBackgroundColor: Color(0xff393e46),
   primaryColor: Color(0xff393e46),
   primaryColorLight: Color(0xFFaad8d3),
-  accentColor: Color(0xFF00adb5),
   errorColor: Color(0xFFFF6933),
   backgroundColor: Color(0xFFeeeeee),
   cardColor: Colors.white,
@@ -49,49 +49,35 @@ ThemeData themeData = ThemeData(
       fontSize: 18,
       fontWeight: FontWeight.w200,
     ),
+    bodyText1: TextStyle(
+      color: Color(0xFFeeeeee),
+      fontSize: 18,
+      fontWeight: FontWeight.w300,
+      height: 1.5,
+    ),
+  ),
+  colorScheme: ColorScheme.fromSwatch().copyWith(
+    secondary: Color(0xFF00adb5),
+    primary: Color(0xFFaad8d3),
+    brightness: Brightness.dark,
+  ),
+  buttonTheme: ButtonThemeData(
+    buttonColor: Color(0xFFaad8d3),
+  ),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ElevatedButton.styleFrom(
+      primary: Color(0xFF00adb5),
+      elevation: 5,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
+    ),
+  ),
+  cardTheme: CardTheme(
+    margin: EdgeInsets.zero,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(25.0),
+    ),
   ),
 );
 
-// ThemeData themeData2 = ThemeData.dark().copyWith(
-//   primaryColor: Color(0xff393e46),
-//   primaryColorLight: Color(0xFFaad8d3),
-//   accentColor: Color(0xFF00adb5),
-//   errorColor: Color(0xFFFF6933),
-//   backgroundColor: Color(0xFFeeeeee),
-//   cardColor: Colors.white,
-//   scaffoldBackgroundColor: Colors.white,
-//   textTheme: TextTheme(
-//     bodyText2: TextStyle(color: Colors.black54),
-//     headline1: TextStyle(
-//       color: Colors.black87,
-//       fontSize: 24,
-//       fontWeight: FontWeight.w500,
-//     ),
-//     headline2: TextStyle(
-//       color: Colors.black87,
-//       fontSize: 18,
-//       fontWeight: FontWeight.w400,
-//     ),
-//     headline3: TextStyle(
-//       color: Colors.black87,
-//       fontSize: 18,
-//       fontWeight: FontWeight.w400,
-//     ),
-//     headline5: TextStyle(
-//       fontSize: 20,
-//       fontWeight: FontWeight.w400,
-//     ),
-//     caption: TextStyle(
-//       color: Colors.grey[600],
-//       fontSize: 14,
-//       fontWeight: FontWeight.w400,
-//     ),
-//     subtitle1: TextStyle(
-//       color: Colors.black,
-//       fontSize: 14,
-//       fontWeight: FontWeight.w300,
-//     ),
-//   ).apply(
-//     fontFamily: 'RobotoMono',
-//   ),
-// );
+String kBio =
+    "Hello! I'm Isaac Marcus Lam (b. 1995), a software developer who also has a passion in Design, Music and Audio Engineering. I studied music in the School of the Arts (Singapore) and majored in Computer Science at the Singapore University of Technology & Design. I'm interested in the integration of design and technology to explore the world through various mediums. In my free time you can find me Up-Skilling, making Music, and swinging about at a climbing gym. If my work interests you, need a solution to your problem, or simply want to connect, you can hit me up and I'd love to have a coffee with you.";

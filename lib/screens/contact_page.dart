@@ -2,6 +2,7 @@ import 'package:cvapp/constants.dart';
 import 'package:cvapp/widgets/menu_drawer.dart';
 import 'package:cvapp/widgets/master_app_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 /* --------------------------------------------------------------------------
 
@@ -41,6 +42,13 @@ class _ContactPageState extends State<ContactPage>
     return _drawerSlideController.value == 0.0;
   }
 
+  String? encodeQueryParameters(Map<String, String> params) {
+    return params.entries
+        .map((e) =>
+            '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
+        .join('&');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,11 +86,61 @@ class _ContactPageState extends State<ContactPage>
             Hero(
               tag: "title",
               child: Text(
-                "CONTACT",
+                "Contact Me",
                 style: MediaQuery.of(context).size.width >= 725
                     ? themeData.textTheme.headline1
                     : themeData.textTheme.headline2,
               ),
+            ),
+            SizedBox(
+              height: 100,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // Contact me Column Card
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Any Enquiries",
+                      style: themeData.textTheme.headline2,
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      "Contact me at isaac.marcus.lam@gmail.com or connect with me below!",
+                      style: themeData.textTheme.headline4,
+                    ),
+                    SizedBox(
+                      height: 45,
+                    ),
+                    // Connect button
+                    ElevatedButton(
+                      onPressed: () {
+                        setState(() {
+                          // launch default mail app to send message
+                          launch(Uri(
+                            scheme: 'mailto',
+                            path: 'isaac.marcus.lam@gmail.com',
+                            query: encodeQueryParameters(<String, String>{
+                              'subject': "Connecting via Flutter"
+                            }),
+                          ).toString());
+                        });
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: Text(
+                          "Connect",
+                          style: themeData.textTheme.button,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ],
             )
           ],
         ),

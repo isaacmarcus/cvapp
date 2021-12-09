@@ -67,15 +67,43 @@ class _AboutPageState extends State<AboutPage>
     return Center(
       child: Padding(
         padding: MediaQuery.of(context).size.width >= 725
-            ? kMasterPaddingL
+            ? kMasterBodyPaddingL
             : kMasterPaddingS,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Expanded(
+              child: Row(
+                children: [
+                  // Profile Picture image
+                  Container(
+                    width: 250,
+                    height: 250,
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                          fit: BoxFit.fill,
+                          image: AssetImage('assets/images/profile_pic.jpeg'),
+                        )),
+                  ),
+                  SizedBox(
+                    width: 100,
+                  ),
+                  // Text description for bio/about me
+                  Flexible(
+                    child: Text(
+                      kBio,
+                      style: themeData.textTheme.bodyText1,
+                      maxLines: 50,
+                    ),
+                  ),
+                ],
+              ),
+            ),
             Hero(
               tag: "title",
               child: Text(
-                "ABOUT ME",
+                "About Me",
                 style: MediaQuery.of(context).size.width >= 725
                     ? themeData.textTheme.headline1
                     : themeData.textTheme.headline2,

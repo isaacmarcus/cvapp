@@ -118,7 +118,7 @@ class _LandingPageState extends State<LandingPage>
             tag: "title",
             child: Center(
               child: Text(
-                "TECHNOLOGY, AUDIO, DESIGN",
+                "TECHNOLOGY, DESIGN, AUDIO",
                 style: MediaQuery.of(context).size.width >= 725
                     ? themeData.textTheme.headline1
                     : themeData.textTheme.headline2,
