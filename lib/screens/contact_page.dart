@@ -1,4 +1,6 @@
 import 'package:cvapp/constants.dart';
+import 'package:cvapp/widgets/linktree_icons.dart';
+import 'package:cvapp/widgets/lnktree_icon_button.dart';
 import 'package:cvapp/widgets/menu_drawer.dart';
 import 'package:cvapp/widgets/master_app_bar.dart';
 import 'package:flutter/material.dart';
@@ -53,7 +55,10 @@ class _ContactPageState extends State<ContactPage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        child: MasterAppBar(drawerSlideController: _drawerSlideController),
+        child: MasterAppBar(
+          drawerSlideController: _drawerSlideController,
+          keyList: [],
+        ),
         preferredSize: MediaQuery.of(context).size.width >= 725
             ? kAppBarHeightL
             : kAppBarHeightS,
@@ -95,50 +100,99 @@ class _ContactPageState extends State<ContactPage>
             SizedBox(
               height: 100,
             ),
+            // Linktree
+            //          gh
+            //      li      tw
+            //   ig     yt      sp
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                LinktreeIconButton(
+                  linkurl: kGitHubLink,
+                  linkicon: Icon(LinktreeIcons.github),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    LinktreeIconButton(
+                      linkurl: kLinkedInLink,
+                      linkicon: Icon(LinktreeIcons.linkedin_in),
+                    ),
+                    LinktreeIconButton(
+                      linkurl: kTwitterLink,
+                      linkicon: Icon(LinktreeIcons.twitter),
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    LinktreeIconButton(
+                      linkurl: kIGLink,
+                      linkicon: Icon(LinktreeIcons.instagram),
+                    ),
+                    LinktreeIconButton(
+                      linkurl: kYTLink,
+                      linkicon: Icon(LinktreeIcons.youtube),
+                    ),
+                    LinktreeIconButton(
+                      linkurl: kSpotifyLink,
+                      linkicon: Icon(LinktreeIcons.spotify),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 100,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // Contact me Column Card
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Any Enquiries",
-                      style: themeData.textTheme.headline2,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      "Contact me at isaac.marcus.lam@gmail.com or connect with me below!",
-                      style: themeData.textTheme.headline4,
-                    ),
-                    SizedBox(
-                      height: 45,
-                    ),
-                    // Connect button
-                    ElevatedButton(
-                      onPressed: () {
-                        setState(() {
-                          // launch default mail app to send message
-                          launch(Uri(
-                            scheme: 'mailto',
-                            path: 'isaac.marcus.lam@gmail.com',
-                            query: encodeQueryParameters(<String, String>{
-                              'subject': "Connecting via Flutter"
-                            }),
-                          ).toString());
-                        });
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.all(15.0),
-                        child: Text(
-                          "Connect",
-                          style: themeData.textTheme.button,
-                        ),
+                Flexible(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Any Enquiries",
+                        style: themeData.textTheme.headline2,
                       ),
-                    )
-                  ],
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        "Contact me at isaac.marcus.lam@gmail.com or connect with me below!",
+                        style: themeData.textTheme.headline4,
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(
+                        height: 45,
+                      ),
+                      // Connect button
+                      ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            // launch default mail app to send message
+                            launch(Uri(
+                              scheme: 'mailto',
+                              path: 'isaac.marcus.lam@gmail.com',
+                              query: encodeQueryParameters(<String, String>{
+                                'subject': "Connecting via Flutter"
+                              }),
+                            ).toString());
+                          });
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(15.0),
+                          child: Text(
+                            "Connect",
+                            style: themeData.textTheme.button,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ],
             )

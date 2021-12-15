@@ -13,8 +13,9 @@ includes the animation controller for its staggered animation outwards.
 
 class Menu extends StatefulWidget {
   final AnimationController dsController;
+  final keyList;
 
-  Menu({required this.dsController});
+  Menu({required this.dsController, this.keyList});
 
   @override
   _MenuState createState() => _MenuState();
@@ -131,8 +132,10 @@ class _MenuState extends State<Menu> with SingleTickerProviderStateMixin {
             padding: const EdgeInsets.symmetric(horizontal: 36.0, vertical: 16),
             child: TitleTextButton(
               buttonText: kMenuTitles[i][0],
+              selected: false,
               pressedFunction: () {
-                Navigator.pushReplacementNamed(context, kMenuTitles[i][1]);
+                // Navigator.pushReplacementNamed(context, kMenuTitles[i][1]);
+                Scrollable.ensureVisible(widget.keyList[i + 1].currentContext);
                 toggleDrawer();
               },
             ),

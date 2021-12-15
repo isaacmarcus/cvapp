@@ -1,4 +1,5 @@
 import 'package:cvapp/constants.dart';
+import 'package:cvapp/screens/about_section.dart';
 import 'package:cvapp/screens/landing_page.dart';
 import 'package:cvapp/widgets/full_screen_appbar_row.dart';
 import 'package:cvapp/widgets/title_text_button.dart';
@@ -14,8 +15,9 @@ pages of the "app"
 
 class MasterAppBar extends StatefulWidget {
   final AnimationController drawerSlideController;
+  final List keyList;
 
-  MasterAppBar({required this.drawerSlideController});
+  MasterAppBar({required this.drawerSlideController, required this.keyList});
 
   @override
   _MasterAppBarState createState() => _MasterAppBarState();
@@ -56,16 +58,20 @@ class _MasterAppBarState extends State<MasterAppBar>
               children: [
                 TitleTextButton(
                   buttonText: "Isaac Marcus",
+                  selected: false,
                   pressedFunction: () {
-                    Navigator.pushReplacementNamed(context, LandingPage.id);
+                    // Navigator.pushReplacementNamed(context, LandingPage.id);
                     if (isDrawerOpen()) {
                       toggleDrawer();
                     }
+                    Scrollable.ensureVisible(widget.keyList[0].currentContext);
                   },
                 ),
                 // Check if screen size is smaller than 725 logical pixels
                 MediaQuery.of(context).size.width >= 725
-                    ? FullScreenABarRow()
+                    ? FullScreenABarRow(
+                        keyList: widget.keyList,
+                      )
                     // If smaller than 725 logical pixels input code here
                     : AnimatedBuilder(
                         animation: widget.drawerSlideController,
@@ -81,6 +87,7 @@ class _MasterAppBarState extends State<MasterAppBar>
                                     Icons.menu,
                                     color: Color(0xFFeeeeee),
                                   ),
+                            splashRadius: 20,
                           );
                         },
                       ),

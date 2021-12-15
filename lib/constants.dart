@@ -10,19 +10,33 @@ const kScreenTitlePadding = EdgeInsets.all(15);
 const kMasterBodyPaddingL = EdgeInsets.all(200);
 const kMasterPaddingL = EdgeInsets.all(60);
 const kMasterPaddingS = EdgeInsets.all(28);
+const kMasterPaddingT = EdgeInsets.all(10);
 const kAppBarHeightDoubleL = 100.0;
 const kAppBarHeightDoubleS = 60.0;
 const kAppBarHeightL = Size.fromHeight(100);
 const kAppBarHeightS = Size.fromHeight(60);
 const kSymPadLarge = EdgeInsets.symmetric(horizontal: 60);
 const kSymPadSmall = EdgeInsets.symmetric(horizontal: 28);
+const kScreenWidthL = 1080;
+const kScreenWidthM = 725;
+const kScreenWidthS = 650;
 
 const kMenuTitles = [
-  ['HOME', LandingPage.id],
+  // ['HOME', LandingPage.id],
   ['ABOUT', AboutPage.id],
   ['WORK', WorkPage.id],
   ['CONTACT', ContactPage.id],
 ];
+
+const String kGitHubLink = 'https://github.com/isaacmarcus';
+const String kLinkedInLink =
+    'https://www.linkedin.com/in/isaac-marcus-lam-8aa1a2122/';
+const String kTwitterLink = 'https://twitter.com/zwanzigdrei';
+const String kIGLink = 'https://www.instagram.com/zwanzigdrei/';
+const String kYTLink =
+    'https://www.youtube.com/channel/UCqCokTIaj_yKiH8hHmDbgJQ/videos';
+const String kSpotifyLink =
+    'https://open.spotify.com/user/1189412476?si=1b5dc5ea509e45a3';
 
 ThemeData themeData = ThemeData(
   fontFamily: "RobotoMono",
@@ -34,11 +48,13 @@ ThemeData themeData = ThemeData(
   backgroundColor: Color(0xFFeeeeee),
   cardColor: Colors.white,
   textTheme: TextTheme(
+    // Biggest Headline Title
     headline1: TextStyle(
       color: Color(0xFFeeeeee),
       fontSize: 55,
       fontWeight: FontWeight.w500,
     ),
+    // Slightly Smaller Title
     headline2: TextStyle(
       color: Color(0xFFeeeeee),
       fontSize: 40,
@@ -53,6 +69,12 @@ ThemeData themeData = ThemeData(
       color: Color(0xFFeeeeee),
       fontSize: 18,
       fontWeight: FontWeight.w300,
+      height: 1.5,
+    ),
+    bodyText2: TextStyle(
+      color: Color(0xFFeeeeee),
+      fontSize: 22,
+      fontWeight: FontWeight.w200,
       height: 1.5,
     ),
   ),
@@ -74,7 +96,7 @@ ThemeData themeData = ThemeData(
   cardTheme: CardTheme(
     margin: EdgeInsets.zero,
     shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(25.0),
+      borderRadius: BorderRadius.circular(0.0),
     ),
   ),
 );

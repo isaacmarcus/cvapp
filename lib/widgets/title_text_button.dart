@@ -12,10 +12,12 @@ text to be passed to it
 class TitleTextButton extends StatelessWidget {
   final String buttonText;
   final Function pressedFunction;
+  final bool selected;
 
   const TitleTextButton({
     required this.buttonText,
     required this.pressedFunction,
+    required this.selected,
   });
 
   @override

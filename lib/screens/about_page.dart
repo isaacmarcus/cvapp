@@ -45,7 +45,10 @@ class _AboutPageState extends State<AboutPage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        child: MasterAppBar(drawerSlideController: _drawerSlideController),
+        child: MasterAppBar(
+          drawerSlideController: _drawerSlideController,
+          keyList: [],
+        ),
         preferredSize: MediaQuery.of(context).size.width >= 725
             ? kAppBarHeightL
             : kAppBarHeightS,

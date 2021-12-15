@@ -1,10 +1,14 @@
 import 'dart:ui';
 
 import 'package:cvapp/constants.dart';
+import 'package:cvapp/screens/about_section.dart';
+import 'package:cvapp/screens/work_section.dart';
 import 'package:cvapp/widgets/menu_drawer.dart';
 import 'package:cvapp/widgets/master_app_bar.dart';
 import 'package:cvapp/widgets/moire_box.dart';
 import 'package:flutter/material.dart';
+
+import 'contact_section.dart';
 
 /* --------------------------------------------------------------------------
 
@@ -15,6 +19,10 @@ Widget Description: Landing Page to welcome visitors
 
 class LandingPage extends StatefulWidget {
   static const String id = "landing_page";
+  static final landingKey = GlobalKey();
+  static final aboutKey = GlobalKey();
+  static final workKey = GlobalKey();
+  static final contactKey = GlobalKey();
 
   @override
   _LandingPageState createState() => _LandingPageState();
@@ -46,82 +54,126 @@ class _LandingPageState extends State<LandingPage>
 
   @override
   Widget build(BuildContext context) {
+    var screenWidth = MediaQuery.of(context).size.width;
+    var screenHeight = MediaQuery.of(context).size.height;
+
+    final keyList = [
+      LandingPage.landingKey,
+      LandingPage.aboutKey,
+      LandingPage.workKey,
+      LandingPage.contactKey
+    ];
+
     return Scaffold(
       appBar: PreferredSize(
-        child: MasterAppBar(drawerSlideController: _drawerSlideController),
-        preferredSize: MediaQuery.of(context).size.width >= 725
-            ? kAppBarHeightL
-            : kAppBarHeightS,
+        child: MasterAppBar(
+          drawerSlideController: _drawerSlideController,
+          keyList: keyList,
+        ),
+        preferredSize: screenWidth >= 725 ? kAppBarHeightL : kAppBarHeightS,
       ),
       extendBodyBehindAppBar: true,
       body: Stack(
         children: [
-          Hero(
-            tag: "MoireBox2",
-            child: MoireBox(
-              scrnContext: context,
-              numberOfBoxes: 30,
-              borderColour: Colors.red[400],
-              boxRadius: 0,
-              boxWidth: MediaQuery.of(context).size.width >= 725
-                  ? 435
-                  : MediaQuery.of(context).size.width * 0.6,
-              boxHeight: MediaQuery.of(context).size.height * 0.7,
-              xPosition: 28,
-              yPosition: MediaQuery.of(context).size.width >= 725
-                  ? (-kAppBarHeightDoubleL / 2) + 27
-                  : (-kAppBarHeightDoubleS / 2) + 27,
-            ),
-          ),
-          Hero(
-            tag: "MoireBox1",
-            child: MoireBox(
-              scrnContext: context,
-              numberOfBoxes: 30,
-              borderColour: Colors.amber[300],
-              boxRadius: 0,
-              boxWidth: MediaQuery.of(context).size.width >= 725
-                  ? 435
-                  : MediaQuery.of(context).size.width * 0.6,
-              boxHeight: MediaQuery.of(context).size.height * 0.7,
-              xPosition: -28,
-              yPosition: MediaQuery.of(context).size.width >= 725
-                  ? (-kAppBarHeightDoubleL / 2) - 27
-                  : (-kAppBarHeightDoubleS / 2) - 27,
-            ),
-          ),
-          // Main page body content
+          _buildMoireBoxes(screenWidth, screenHeight),
+          // Main page body content (ORIGINAL)
+          // Container(
+          //   color: Colors.transparent,
+          //   child: BackdropFilter(
+          //     filter: new ImageFilter.blur(sigmaX: 0.6, sigmaY: 0.6),
+          //     child: _buildContent(),
+          //   ),
+          // ),
+          // Main page body content (Using SCSV)
           Container(
             color: Colors.transparent,
             child: BackdropFilter(
-                filter: new ImageFilter.blur(sigmaX: 0.6, sigmaY: 0.6),
-                child: _buildContent()),
+              filter: new ImageFilter.blur(sigmaX: 0.6, sigmaY: 0.6),
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    _buildContent(screenWidth, screenHeight),
+                    AboutSection(key: LandingPage.aboutKey),
+                    WorkSection(key: LandingPage.workKey),
+                    ContactSection(key: LandingPage.contactKey),
+                  ],
+                ),
+              ),
+            ),
           ),
           // Stacked Menu
-          _buildDrawer(),
+          _buildDrawer(keyList),
         ],
       ),
     );
   }
 
+  // Moire Boxes
+  Widget _buildMoireBoxes(screenWidth, screenHeight) {
+    return Stack(
+      children: [
+        Hero(
+          tag: "MoireBox2",
+          child: MoireBox(
+            scrnContext: context,
+            numberOfBoxes: 30,
+            borderColour: Colors.red[400],
+            boxRadius: 0,
+            boxWidth: screenWidth >= 725 ? 435 : screenWidth * 0.55,
+            boxHeight:
+                screenWidth >= 725 ? screenHeight * 0.7 : screenHeight * 0.5,
+            xPosition: 28,
+            yPosition: screenWidth >= 725
+                ? (-kAppBarHeightDoubleL / 2) + 27
+                : (-kAppBarHeightDoubleS / 2) + 27,
+          ),
+        ),
+        Hero(
+          tag: "MoireBox1",
+          child: MoireBox(
+            scrnContext: context,
+            numberOfBoxes: 30,
+            borderColour: Colors.amber[300],
+            boxRadius: 0,
+            boxWidth: screenWidth >= 725 ? 435 : screenWidth * 0.55,
+            boxHeight: MediaQuery.of(context).size.width >= 725
+                ? screenHeight * 0.7
+                : screenHeight * 0.5,
+            xPosition: -28,
+            yPosition: screenWidth >= 725
+                ? (-kAppBarHeightDoubleL / 2) - 27
+                : (-kAppBarHeightDoubleS / 2) - 27,
+          ),
+        ),
+      ],
+    );
+  }
+
   // Page Content
-  Widget _buildContent() {
+  Widget _buildContent(screenWidth, screenHeight) {
     return Padding(
-      padding: MediaQuery.of(context).size.width >= 725
-          ? kMasterPaddingL
-          : kMasterPaddingS,
+      key: LandingPage.landingKey,
+      padding: screenWidth >= 725 ? kMasterPaddingL : kMasterPaddingS,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
+          // Main title
           Hero(
             tag: "title",
-            child: Center(
-              child: Text(
-                "TECHNOLOGY, DESIGN, AUDIO",
-                style: MediaQuery.of(context).size.width >= 725
-                    ? themeData.textTheme.headline1
-                    : themeData.textTheme.headline2,
+            child: Container(
+              width: screenWidth,
+              height: screenWidth >= 725
+                  ? screenHeight - kAppBarHeightDoubleL
+                  : screenHeight - kAppBarHeightDoubleS,
+              child: Center(
+                child: Text(
+                  "TECHNOLOGY, DESIGN, AUDIO",
+                  style: screenWidth >= 725
+                      ? themeData.textTheme.headline1
+                      : themeData.textTheme.headline2,
+                ),
               ),
             ),
           )
@@ -130,7 +182,8 @@ class _LandingPageState extends State<LandingPage>
     );
   }
 
-  Widget _buildDrawer() {
+  // drawer builder
+  Widget _buildDrawer(keyList) {
     return AnimatedBuilder(
       animation: _drawerSlideController,
       builder: (context, child) {
@@ -140,6 +193,7 @@ class _LandingPageState extends State<LandingPage>
               ? const SizedBox()
               : Menu(
                   dsController: _drawerSlideController,
+                  keyList: keyList,
                 ),
         );
       },

@@ -1,3 +1,4 @@
+import 'package:cvapp/Screens/landing_page.dart';
 import 'package:cvapp/widgets/title_text_button.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +13,10 @@ mobile screen resolutions.
 -----------------------------------------------------------------------------*/
 
 class FullScreenABarRow extends StatelessWidget {
+  final keyList;
+
+  FullScreenABarRow({this.keyList});
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -28,8 +33,11 @@ class FullScreenABarRow extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
           child: TitleTextButton(
             buttonText: kMenuTitles[i][0],
+            selected: false,
             pressedFunction: () {
-              Navigator.pushReplacementNamed(context, kMenuTitles[i][1]);
+              Scrollable.ensureVisible(keyList[i + 1].currentContext);
+              // vvv for page changes rather than scroll to vvv
+              // Navigator.pushReplacementNamed(context, kMenuTitles[i][1]);
             },
           ),
         ),
