@@ -21,6 +21,8 @@ const kScreenWidthL = 1080;
 const kScreenWidthM = 725;
 const kScreenWidthS = 650;
 
+const kAnimationDuration = Duration(milliseconds: 300);
+
 const kMenuTitles = [
   // ['HOME', LandingPage.id],
   ['ABOUT', AboutPage.id],
@@ -74,6 +76,12 @@ ThemeData themeData = ThemeData(
     bodyText2: TextStyle(
       color: Color(0xFFeeeeee),
       fontSize: 22,
+      fontWeight: FontWeight.w300,
+      height: 1.5,
+    ),
+    caption: TextStyle(
+      color: Color(0xFFeeeeee),
+      fontSize: 16,
       fontWeight: FontWeight.w200,
       height: 1.5,
     ),

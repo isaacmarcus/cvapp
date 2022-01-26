@@ -42,10 +42,56 @@ class _WorkSectionState extends State<WorkSection> {
                 SizedBox(
                   height: 50,
                 ),
+                Container(
+                  width: screenWidth * 0.95,
+                  margin: EdgeInsets.zero,
+                  child: GridView.count(
+                    padding: EdgeInsets.zero,
+                    shrinkWrap: true,
+                    crossAxisCount: 1,
+                    children: <Widget>[
+                      // WorkCard(
+                      //   title: "",
+                      //   titleImage: 'assets/images/shooshoe_ss.PNG',
+                      //   link: "https://github.com/isaacmarcus/ShooShoeApp",
+                      //   description: "",
+                      // ),
+                      WorkCard(
+                        title: "Moire Playground",
+                        titleImage: 'assets/images/moire_playground_ss.PNG',
+                        link: "https://github.com/isaacmarcus/MoirePlayground",
+                        description:
+                            "An exploration into the design of 'MOIRE'",
+                      ),
+                      // WorkCard(
+                      //   title: "LinkTree Github Pages",
+                      //   titleImage: 'assets/images/lnktree_ss.PNG',
+                      //   link: "https://github.com/isaacmarcus/lnkin",
+                      //   description:
+                      //       "Creating a simple HTML Clone of the popular LinkTree website",
+                      // ),
+                    ],
+                  ),
+                ),
+                // WorkCard(
+                //   title: "",
+                //   titleImage: 'assets/images/shooshoe_ss.PNG',
+                //   link: "https://github.com/isaacmarcus/ShooShoeApp",
+                //   description: "",
+                // ),
                 WorkCard(
                   title: "Moire Playground",
                   titleImage: 'assets/images/moire_playground_ss.PNG',
+                  link: "https://github.com/isaacmarcus/MoirePlayground",
+                  description: "An exploration into the design of 'MOIRE'",
                 ),
+                // WorkCard(
+                //   title: "LinkTree Github Pages",
+                //   titleImage: 'assets/images/lnktree_ss.PNG',
+                //   link: "https://github.com/isaacmarcus/lnkin",
+                //   description:
+                //       "Creating a simple HTML Clone of the popular LinkTree website",
+                // ),
               ],
             ),
           ),

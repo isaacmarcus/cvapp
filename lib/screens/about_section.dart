@@ -2,10 +2,17 @@ import 'package:flutter/material.dart';
 
 import '../constants.dart';
 
-class AboutSection extends StatelessWidget {
+class AboutSection extends StatefulWidget {
   final key;
 
   AboutSection({required this.key});
+
+  @override
+  State<AboutSection> createState() => _AboutSectionState();
+}
+
+class _AboutSectionState extends State<AboutSection> {
+  bool isHover = false;
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +20,7 @@ class AboutSection extends StatelessWidget {
     var screenHeight = MediaQuery.of(context).size.height;
 
     return Container(
-      key: key,
+      key: widget.key,
       width: screenWidth,
       // height: MediaQuery.of(context).size.height - kAppBarHeightDoubleL,
       child: Center(
@@ -54,15 +61,11 @@ class AboutSection extends StatelessWidget {
     return Row(
       children: [
         // Profile Picture image
-        Container(
-          width: screenWidth >= 725 ? 250 : screenHeight * 0.25,
-          height: screenWidth >= 725 ? 250 : screenHeight * 0.25,
-          decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              image: DecorationImage(
-                fit: BoxFit.fill,
-                image: AssetImage('assets/images/profile_pic.jpeg'),
-              )),
+        // TODO: Figure out how to animate hover
+        CircleAvatar(
+          radius:
+              screenWidth >= 1080 ? screenWidth * 0.085 : screenWidth * 0.15,
+          backgroundImage: AssetImage('assets/images/profile_pic.jpeg'),
         ),
         SizedBox(
           width: screenWidth * 0.05,

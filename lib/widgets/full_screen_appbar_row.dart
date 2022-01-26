@@ -13,9 +13,13 @@ mobile screen resolutions.
 -----------------------------------------------------------------------------*/
 
 class FullScreenABarRow extends StatelessWidget {
+  // final List sections;
+  // final ValueNotifier
   final keyList;
 
-  FullScreenABarRow({this.keyList});
+  FullScreenABarRow({
+    this.keyList,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +39,10 @@ class FullScreenABarRow extends StatelessWidget {
             buttonText: kMenuTitles[i][0],
             selected: false,
             pressedFunction: () {
-              Scrollable.ensureVisible(keyList[i + 1].currentContext);
+              Scrollable.ensureVisible(
+                keyList[i + 1].currentContext,
+                duration: kAnimationDuration,
+              );
               // vvv for page changes rather than scroll to vvv
               // Navigator.pushReplacementNamed(context, kMenuTitles[i][1]);
             },

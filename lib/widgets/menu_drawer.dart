@@ -135,7 +135,10 @@ class _MenuState extends State<Menu> with SingleTickerProviderStateMixin {
               selected: false,
               pressedFunction: () {
                 // Navigator.pushReplacementNamed(context, kMenuTitles[i][1]);
-                Scrollable.ensureVisible(widget.keyList[i + 1].currentContext);
+                Scrollable.ensureVisible(
+                  widget.keyList[i + 1].currentContext,
+                  duration: kAnimationDuration,
+                );
                 toggleDrawer();
               },
             ),

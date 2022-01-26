@@ -6,6 +6,7 @@ import 'package:cvapp/screens/work_section.dart';
 import 'package:cvapp/widgets/menu_drawer.dart';
 import 'package:cvapp/widgets/master_app_bar.dart';
 import 'package:cvapp/widgets/moire_box.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'contact_section.dart';
@@ -19,6 +20,7 @@ Widget Description: Landing Page to welcome visitors
 
 class LandingPage extends StatefulWidget {
   static const String id = "landing_page";
+  // final ValueListenable sectionNotifier;
   static final landingKey = GlobalKey();
   static final aboutKey = GlobalKey();
   static final workKey = GlobalKey();
@@ -100,6 +102,20 @@ class _LandingPageState extends State<LandingPage>
                   ],
                 ),
               ),
+              // Slivers and Custom Scroll view had a bug, revert to SCSV first
+              // child: CustomScrollView(
+              //   // physics: ,
+              //   slivers: [
+              //     SliverList(
+              //       delegate: SliverChildListDelegate([
+              //         _buildContent(screenWidth, screenHeight),
+              //         AboutSection(key: LandingPage.aboutKey),
+              //         WorkSection(key: LandingPage.workKey),
+              //         ContactSection(key: LandingPage.contactKey),
+              //       ]),
+              //     ),
+              //   ],
+              // ),
             ),
           ),
           // Stacked Menu

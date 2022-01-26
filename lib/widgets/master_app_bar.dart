@@ -64,7 +64,10 @@ class _MasterAppBarState extends State<MasterAppBar>
                     if (isDrawerOpen()) {
                       toggleDrawer();
                     }
-                    Scrollable.ensureVisible(widget.keyList[0].currentContext);
+                    Scrollable.ensureVisible(
+                      widget.keyList[0].currentContext,
+                      duration: kAnimationDuration,
+                    );
                   },
                 ),
                 // Check if screen size is smaller than 725 logical pixels
