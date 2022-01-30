@@ -43,33 +43,42 @@ class _WorkSectionState extends State<WorkSection> {
                   height: 50,
                 ),
                 Container(
-                  width: screenWidth * 0.95,
                   margin: EdgeInsets.zero,
                   child: GridView.count(
+                    childAspectRatio: 1.5,
                     padding: EdgeInsets.zero,
                     shrinkWrap: true,
-                    crossAxisCount: 1,
+                    crossAxisCount: screenWidth >= 1080 ? 2 : 1,
                     children: <Widget>[
-                      // WorkCard(
-                      //   title: "",
-                      //   titleImage: 'assets/images/shooshoe_ss.PNG',
-                      //   link: "https://github.com/isaacmarcus/ShooShoeApp",
-                      //   description: "",
-                      // ),
+                      WorkCard(
+                        titleImage: 'assets/images/shooshoe_ss.PNG',
+                        link: "https://github.com/isaacmarcus/ShooShoeApp",
+                        logo: 'assets/logos/android_logo.png',
+                      ),
                       WorkCard(
                         title: "Moire Playground",
                         titleImage: 'assets/images/moire_playground_ss.PNG',
                         link: "https://github.com/isaacmarcus/MoirePlayground",
                         description:
                             "An exploration into the design of 'MOIRE'",
+                        logo: 'assets/logos/flutter_logo.png',
                       ),
-                      // WorkCard(
-                      //   title: "LinkTree Github Pages",
-                      //   titleImage: 'assets/images/lnktree_ss.PNG',
-                      //   link: "https://github.com/isaacmarcus/lnkin",
-                      //   description:
-                      //       "Creating a simple HTML Clone of the popular LinkTree website",
-                      // ),
+                      WorkCard(
+                        title: "LinkTree Github Pages",
+                        titleImage: 'assets/images/lnktree_ss.PNG',
+                        link: "https://github.com/isaacmarcus/lnkin",
+                        description:
+                            "Creating a HTML Clone of the popular LinkTree website",
+                        logo: 'assets/logos/html_logo.png',
+                      ),
+                      WorkCard(
+                        title: "DeTrack POD WebApp",
+                        titleImage: 'assets/images/detrack_ss.PNG',
+                        link: "https://github.com/isaacmarcus/DeTrack-POD-App",
+                        description:
+                            "A WebApp using APIs to download data from management system",
+                        logo: 'assets/logos/flutter_logo.png',
+                      ),
                     ],
                   ),
                 ),
@@ -79,12 +88,12 @@ class _WorkSectionState extends State<WorkSection> {
                 //   link: "https://github.com/isaacmarcus/ShooShoeApp",
                 //   description: "",
                 // ),
-                WorkCard(
-                  title: "Moire Playground",
-                  titleImage: 'assets/images/moire_playground_ss.PNG',
-                  link: "https://github.com/isaacmarcus/MoirePlayground",
-                  description: "An exploration into the design of 'MOIRE'",
-                ),
+                // WorkCard(
+                //   title: "Moire Playground",
+                //   titleImage: 'assets/images/moire_playground_ss.PNG',
+                //   link: "https://github.com/isaacmarcus/MoirePlayground",
+                //   description: "An exploration into the design of 'MOIRE'",
+                // ),
                 // WorkCard(
                 //   title: "LinkTree Github Pages",
                 //   titleImage: 'assets/images/lnktree_ss.PNG',

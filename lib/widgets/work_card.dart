@@ -7,12 +7,14 @@ class WorkCard extends StatefulWidget {
   final title;
   final description;
   final link;
+  final logo;
 
   WorkCard({
-    this.titleImage,
-    this.title,
-    this.description,
-    this.link,
+    required this.titleImage,
+    this.title = '',
+    this.description = '',
+    required this.link,
+    this.logo = '',
   });
 
   @override
@@ -44,11 +46,6 @@ class _WorkCardState extends State<WorkCard>
 
   @override
   Widget build(BuildContext context) {
-    var screenWidth = MediaQuery.of(context).size.width;
-    var screenHeight = MediaQuery.of(context).size.height;
-    double cardPaddingL = 50;
-    double hoverPaddingL = 47;
-
     return _largeCard();
   }
 
@@ -57,6 +54,8 @@ class _WorkCardState extends State<WorkCard>
     var screenHeight = MediaQuery.of(context).size.height;
     double cardPaddingL = 50;
     double hoverPaddingL = 47;
+    // to check if there is an empty title
+    bool noTitle = widget.title == "";
 
     return AnimatedContainer(
       width: screenWidth * 0.95,
@@ -99,33 +98,59 @@ class _WorkCardState extends State<WorkCard>
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       // Title of the card
-                      Text(
-                        widget.title,
-                        style: themeData.textTheme.bodyText2,
+                      Container(
+                        padding: EdgeInsets.all(5),
+                        color: noTitle == true
+                            ? Colors.black.withOpacity(0)
+                            : Colors.black.withOpacity(0.75),
+                        child: Text(
+                          widget.title,
+                          style: themeData.textTheme.bodyText2,
+                        ),
                       ),
                     ],
                   ),
-                  SizedBox(
-                    height: 10,
-                  ),
+                  // SizedBox(
+                  //   height: 10,
+                  // ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       // Description of the card
                       Flexible(
-                        child: Text(
-                          widget.description,
-                          maxLines: 4,
-                          style: themeData.textTheme.caption,
+                        child: Container(
+                          padding: EdgeInsets.all(5),
+                          color: noTitle == true
+                              ? Colors.black.withOpacity(0)
+                              : Colors.black.withOpacity(0.75),
+                          child: Text(
+                            widget.description,
+                            maxLines: 4,
+                            style: themeData.textTheme.caption,
+                          ),
                         ),
                       ),
                     ],
                   ),
                   Spacer(),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      Opacity(
+                        opacity: 0.75,
+                        child: Container(
+                          width: 40,
+                          height: 40,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                fit: BoxFit.cover,
+                                image: AssetImage(widget.logo),
+                              )),
+                        ),
+                      ),
+                      Spacer(),
                       // Arrow icon indicating to click
                       RotationTransition(
                         turns:
