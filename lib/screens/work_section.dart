@@ -88,6 +88,14 @@ class _WorkSectionState extends State<WorkSection> {
                             "A WebApp introducing me and showcasing my works",
                         logo: 'assets/logos/flutter_logo.png',
                       ),
+                      WorkCard(
+                        title: "DGP Invoice Merger",
+                        titleImage: 'assets/images/dgpinv_ss.PNG',
+                        link: "https://github.com/isaacmarcus/DGPInvoicing",
+                        description:
+                            "A Python Desktop App to automate merging of pdf invoices",
+                        logo: 'assets/logos/python_logo.png',
+                      ),
                     ],
                   ),
                 ),
