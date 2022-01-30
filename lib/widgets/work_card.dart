@@ -8,6 +8,7 @@ class WorkCard extends StatefulWidget {
   final description;
   final link;
   final logo;
+  final logo2;
 
   WorkCard({
     required this.titleImage,
@@ -15,6 +16,7 @@ class WorkCard extends StatefulWidget {
     this.description = '',
     required this.link,
     this.logo = '',
+    this.logo2 = '',
   });
 
   @override
@@ -90,7 +92,7 @@ class _WorkCardState extends State<WorkCard>
                   )),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(25, 15, 25, 25),
+              padding: const EdgeInsets.fromLTRB(20, 15, 20, 20),
               child: Column(
                 children: [
                   Row(
@@ -102,7 +104,7 @@ class _WorkCardState extends State<WorkCard>
                         padding: EdgeInsets.all(5),
                         color: noTitle == true
                             ? Colors.black.withOpacity(0)
-                            : Colors.black.withOpacity(0.75),
+                            : Colors.black.withOpacity(0.65),
                         child: Text(
                           widget.title,
                           style: themeData.textTheme.bodyText2,
@@ -123,7 +125,7 @@ class _WorkCardState extends State<WorkCard>
                           padding: EdgeInsets.all(5),
                           color: noTitle == true
                               ? Colors.black.withOpacity(0)
-                              : Colors.black.withOpacity(0.75),
+                              : Colors.black.withOpacity(0.65),
                           child: Text(
                             widget.description,
                             maxLines: 4,
@@ -147,6 +149,19 @@ class _WorkCardState extends State<WorkCard>
                               image: DecorationImage(
                                 fit: BoxFit.cover,
                                 image: AssetImage(widget.logo),
+                              )),
+                        ),
+                      ),
+                      Opacity(
+                        opacity: 0.75,
+                        child: Container(
+                          width: 40,
+                          height: 40,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                fit: BoxFit.cover,
+                                image: AssetImage(widget.logo2),
                               )),
                         ),
                       ),

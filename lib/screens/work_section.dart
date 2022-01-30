@@ -70,6 +70,7 @@ class _WorkSectionState extends State<WorkSection> {
                         description:
                             "Creating a HTML Clone of the popular LinkTree website",
                         logo: 'assets/logos/html_logo.png',
+                        logo2: 'assets/logos/css_logo.png',
                       ),
                       WorkCard(
                         title: "DeTrack POD WebApp",
@@ -77,6 +78,14 @@ class _WorkSectionState extends State<WorkSection> {
                         link: "https://github.com/isaacmarcus/DeTrack-POD-App",
                         description:
                             "A WebApp using APIs to download data from management system",
+                        logo: 'assets/logos/flutter_logo.png',
+                      ),
+                      WorkCard(
+                        title: "Flutter Portfolio WebApp",
+                        titleImage: 'assets/images/cvapp_ss.PNG',
+                        link: "https://github.com/isaacmarcus/cvapp",
+                        description:
+                            "A WebApp introducing me and showcasing my works",
                         logo: 'assets/logos/flutter_logo.png',
                       ),
                     ],
