@@ -1,16 +1,23 @@
-# cvapp
+# Flutter Portfolio WebApp
 
-A new Flutter project.
+A Flutter WebApp to showcase my works that has responsive, coherent and intuitive design. Instead of using a template and website/portoflio builder, I thought it would make more sense to showcase my works by creating my own website using flutter. Flutter is a cross-platform development framework developed by google build on the .dart language
 
-## Getting Started
+Head over to https://isaacmarcus.github.io/cvapp/ to explore and take a look at some of my featured works
 
-This project is a starting point for a Flutter application.
+## Key Features
 
-A few resources to get you started if this is your first Flutter project:
+1. Responsive Design (Media Queries)
+2. Single Scrollable Page
+3. Object Oriented Programming
+4. Animations
+5. ThemeData Constants
+6. Splash Screen
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Plugins/Libraries Used
+- flutter_native_splash: ^1.2.0
+- animated_splash_screen: ^1.1.0
+- url_launcher: ^6.0.17
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Portfolio Preview
+![preview_img](https://github.com/isaacmarcus/cvapp/blob/main/assets/images/cvapp_ss.png?raw=true)
+ 
