@@ -1,4 +1,4 @@
-import 'package:cvapp/constants.dart';
+import '../constants.dart';
 import 'package:flutter/material.dart';
 import 'landing_page.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';

@@ -1,4 +1,4 @@
-import 'package:cvapp/widgets/work_card.dart';
+import '../widgets/work_card.dart';
 import 'package:flutter/material.dart';
 
 import '../constants.dart';

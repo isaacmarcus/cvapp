@@ -1,14 +1,14 @@
 import 'dart:ui';
 
-import 'package:cvapp/constants.dart';
-import 'package:cvapp/screens/about_section.dart';
-import 'package:cvapp/screens/work_section.dart';
-import 'package:cvapp/widgets/menu_drawer.dart';
-import 'package:cvapp/widgets/master_app_bar.dart';
-import 'package:cvapp/widgets/moire_box.dart';
-import 'package:flutter/foundation.dart';
+import '../constants.dart';
+
+import '../widgets/menu_drawer.dart';
+import '../widgets/master_app_bar.dart';
+import '../widgets/moire_box.dart';
 import 'package:flutter/material.dart';
 
+import 'about_section.dart';
+import 'work_section.dart';
 import 'contact_section.dart';
 
 /* --------------------------------------------------------------------------

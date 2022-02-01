@@ -1,9 +1,9 @@
-import 'package:cvapp/Screens/landing_page.dart';
-import 'package:cvapp/constants.dart';
-import 'package:cvapp/screens/about_page.dart';
-import 'package:cvapp/screens/contact_page.dart';
-import 'package:cvapp/screens/splash_page.dart';
-import 'package:cvapp/screens/work_page.dart';
+import 'screens/landing_page.dart';
+import 'constants.dart';
+import 'screens/about_page.dart';
+import 'screens/contact_page.dart';
+import 'screens/splash_page.dart';
+import 'screens/work_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {

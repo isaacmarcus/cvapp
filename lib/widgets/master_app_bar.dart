@@ -1,8 +1,6 @@
-import 'package:cvapp/constants.dart';
-import 'package:cvapp/screens/about_section.dart';
-import 'package:cvapp/screens/landing_page.dart';
-import 'package:cvapp/widgets/full_screen_appbar_row.dart';
-import 'package:cvapp/widgets/title_text_button.dart';
+import '../constants.dart';
+import '../widgets/full_screen_appbar_row.dart';
+import '../widgets/title_text_button.dart';
 import 'package:flutter/material.dart';
 
 /* --------------------------------------------------------------------------

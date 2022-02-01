@@ -1,5 +1,5 @@
-import 'package:cvapp/widgets/linktree_icons.dart';
-import 'package:cvapp/widgets/lnktree_icon_button.dart';
+import '../widgets/linktree_icons.dart';
+import '../widgets/lnktree_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 

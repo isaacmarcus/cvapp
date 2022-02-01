@@ -1,5 +1,4 @@
-import 'package:cvapp/Screens/landing_page.dart';
-import 'package:cvapp/widgets/title_text_button.dart';
+import '../widgets/title_text_button.dart';
 import 'package:flutter/material.dart';
 
 import '../constants.dart';

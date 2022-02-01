@@ -1,8 +1,8 @@
-import 'package:cvapp/constants.dart';
-import 'package:cvapp/widgets/linktree_icons.dart';
-import 'package:cvapp/widgets/lnktree_icon_button.dart';
-import 'package:cvapp/widgets/menu_drawer.dart';
-import 'package:cvapp/widgets/master_app_bar.dart';
+import '../constants.dart';
+import '../widgets/linktree_icons.dart';
+import '../widgets/lnktree_icon_button.dart';
+import '../widgets/menu_drawer.dart';
+import '../widgets/master_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 

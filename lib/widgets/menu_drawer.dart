@@ -1,5 +1,5 @@
-import 'package:cvapp/constants.dart';
-import 'package:cvapp/widgets/title_text_button.dart';
+import '../constants.dart';
+import '../widgets/title_text_button.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui';
 
