@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+import 'package:cvapp/services/scroll_to.dart';
+
 import '../constants.dart';
 
 import '../widgets/menu_drawer.dart';
@@ -7,7 +9,7 @@ import '../widgets/master_app_bar.dart';
 import '../widgets/moire_box.dart';
 import 'package:flutter/material.dart';
 
-// import 'about_section.dart';
+import 'about_section.dart';
 import 'work_section.dart';
 import 'contact_section.dart';
 
@@ -63,14 +65,17 @@ class _LandingPageState extends State<LandingPage>
       LandingPage.landingKey,
       LandingPage.aboutKey,
       LandingPage.workKey,
-      LandingPage.contactKey
+      LandingPage.contactKey,
     ];
+
+    final scrollObj = ScrollTo(keyList: keyList);
 
     return Scaffold(
       appBar: PreferredSize(
         child: MasterAppBar(
           drawerSlideController: _drawerSlideController,
-          keyList: keyList,
+          // keyList: keyList,
+          scrollObj: scrollObj,
         ),
         preferredSize: screenWidth >= 725 ? kAppBarHeightL : kAppBarHeightS,
       ),
@@ -96,9 +101,9 @@ class _LandingPageState extends State<LandingPage>
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     _buildContent(screenWidth, screenHeight),
-                    AboutSection(key: LandingPage.aboutKey),
-                    WorkSection(key: LandingPage.workKey),
-                    ContactSection(key: LandingPage.contactKey),
+                    AboutSection(sectionKey: keyList[1]),
+                    WorkSection(sectionKey: keyList[2]),
+                    ContactSection(sectionKey: keyList[3]),
                   ],
                 ),
               ),
@@ -119,7 +124,7 @@ class _LandingPageState extends State<LandingPage>
             ),
           ),
           // Stacked Menu
-          _buildDrawer(keyList),
+          // _buildDrawer(keyList),
         ],
       ),
     );
@@ -213,118 +218,6 @@ class _LandingPageState extends State<LandingPage>
                 ),
         );
       },
-    );
-  }
-}
-
-class AboutSection extends StatefulWidget {
-  final key;
-
-  AboutSection({required this.key});
-
-  @override
-  State<AboutSection> createState() => _AboutSectionState();
-}
-
-class _AboutSectionState extends State<AboutSection> {
-  bool isHover = false;
-
-  @override
-  Widget build(BuildContext context) {
-    var screenWidth = MediaQuery.of(context).size.width;
-    var screenHeight = MediaQuery.of(context).size.height;
-
-    return Container(
-      key: widget.key,
-      width: screenWidth,
-      // height: MediaQuery.of(context).size.height - kAppBarHeightDoubleL,
-      child: Center(
-        child: Padding(
-          padding: screenWidth >= 725
-              ? EdgeInsets.all(screenWidth * 0.1)
-              : kMasterPaddingS,
-          child: Flexible(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Hero(
-                  tag: "about-title",
-                  child: Text(
-                    "About Me",
-                    style: screenWidth >= 725
-                        ? themeData.textTheme.headline1
-                        : themeData.textTheme.headline2,
-                  ),
-                ),
-                SizedBox(
-                  height: 50,
-                ),
-                screenWidth >= 725 ? _rowBio(context) : _colBio(context),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  // For when screen size is > 725
-  Widget _rowBio(context) {
-    var screenWidth = MediaQuery.of(context).size.width;
-    var screenHeight = MediaQuery.of(context).size.height;
-
-    return Row(
-      children: [
-        // Profile Picture image
-        // TODO: Figure out how to animate hover
-        CircleAvatar(
-          radius:
-              screenWidth >= 1080 ? screenWidth * 0.085 : screenWidth * 0.15,
-          backgroundImage: AssetImage('assets/images/profile_pic.jpeg'),
-        ),
-        SizedBox(
-          width: screenWidth * 0.05,
-        ),
-        // Text description for bio/about me
-        Flexible(
-          child: Text(
-            kBio,
-            style: themeData.textTheme.bodyText1,
-            maxLines: 50,
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _colBio(context) {
-    var screenWidth = MediaQuery.of(context).size.width;
-    var screenHeight = MediaQuery.of(context).size.height;
-
-    return Column(
-      children: [
-        // Profile Picture image
-        Container(
-          width: screenWidth >= 725 ? 250 : screenHeight * 0.25,
-          height: screenWidth >= 725 ? 250 : screenHeight * 0.25,
-          decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              image: DecorationImage(
-                fit: BoxFit.fill,
-                image: AssetImage('assets/images/profile_pic.jpeg'),
-              )),
-        ),
-        SizedBox(
-          height: 50,
-        ),
-        // Text description for bio/about me
-        Text(
-          kBio,
-          style: themeData.textTheme.bodyText1,
-          maxLines: 50,
-          textAlign: TextAlign.center,
-        ),
-      ],
     );
   }
 }

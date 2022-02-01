@@ -47,7 +47,7 @@ class _AboutPageState extends State<AboutPage>
       appBar: PreferredSize(
         child: MasterAppBar(
           drawerSlideController: _drawerSlideController,
-          keyList: [],
+          // keyList: [],
         ),
         preferredSize: MediaQuery.of(context).size.width >= 725
             ? kAppBarHeightL

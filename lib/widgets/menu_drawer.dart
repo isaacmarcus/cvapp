@@ -134,7 +134,7 @@ class _MenuState extends State<Menu> with SingleTickerProviderStateMixin {
               buttonText: kMenuTitles[i][0],
               selected: false,
               pressedFunction: () {
-                // Navigator.pushReplacementNamed(context, kMenuTitles[i][1]);
+                // Scroll to relevant section
                 Scrollable.ensureVisible(
                   widget.keyList[i + 1].currentContext,
                   duration: kAnimationDuration,

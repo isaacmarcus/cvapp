@@ -1,3 +1,4 @@
+import '../screens/landing_page.dart';
 import '../constants.dart';
 import '../widgets/full_screen_appbar_row.dart';
 import '../widgets/title_text_button.dart';
@@ -13,9 +14,14 @@ pages of the "app"
 
 class MasterAppBar extends StatefulWidget {
   final AnimationController drawerSlideController;
-  final List keyList;
+  // final List keyList;
+  final scrollObj;
 
-  MasterAppBar({required this.drawerSlideController, required this.keyList});
+  MasterAppBar({
+    required this.drawerSlideController,
+    // this.keyList,
+    this.scrollObj,
+  });
 
   @override
   _MasterAppBarState createState() => _MasterAppBarState();
@@ -62,16 +68,18 @@ class _MasterAppBarState extends State<MasterAppBar>
                     if (isDrawerOpen()) {
                       toggleDrawer();
                     }
-                    Scrollable.ensureVisible(
-                      widget.keyList[0].currentContext,
-                      duration: kAnimationDuration,
-                    );
+                    widget.scrollObj.scrollTo(LandingPage.id);
+                    // Scrollable.ensureVisible(
+                    //   widget.keyList[0].currentContext,
+                    //   duration: kAnimationDuration,
+                    // );
                   },
                 ),
                 // Check if screen size is smaller than 725 logical pixels
                 MediaQuery.of(context).size.width >= 725
                     ? FullScreenABarRow(
-                        keyList: widget.keyList,
+                        scrollObj: widget.scrollObj,
+                        // keyList: widget.keyList,
                       )
                     // If smaller than 725 logical pixels input code here
                     : AnimatedBuilder(

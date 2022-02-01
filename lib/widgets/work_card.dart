@@ -57,13 +57,11 @@ class _WorkCardState extends State<WorkCard>
     double cardPaddingL = 50;
     double hoverPaddingL = 47;
     // to check if there is an empty title
-    bool noTitle = widget.title == "";
+    bool noTitle = (widget.title == "");
 
     return AnimatedContainer(
       width: screenWidth * 0.95,
       height: screenWidth * 0.95 * 0.6,
-      // width: double.infinity,
-      // height: double.infinity,
       duration: Duration(milliseconds: 200),
       padding: screenWidth >= kScreenWidthM
           ? EdgeInsets.all((isHover == true) ? hoverPaddingL : cardPaddingL)
@@ -95,76 +93,87 @@ class _WorkCardState extends State<WorkCard>
               padding: const EdgeInsets.fromLTRB(20, 15, 20, 20),
               child: Column(
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      // Title of the card
-                      Container(
-                        padding: EdgeInsets.all(5),
-                        color: noTitle == true
-                            ? Colors.black.withOpacity(0)
-                            : Colors.black.withOpacity(0.65),
-                        child: Text(
-                          widget.title,
-                          style: themeData.textTheme.bodyText2,
+                  noTitle == true
+                      ? Container()
+                      : Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            // Title of the card
+                            Container(
+                              padding: EdgeInsets.all(5),
+                              color: noTitle == true
+                                  ? Colors.black.withOpacity(0)
+                                  : Colors.black.withOpacity(0.65),
+                              child: Text(
+                                widget.title,
+                                style: themeData.textTheme.bodyText2,
+                              ),
+                            ),
+                          ],
                         ),
-                      ),
-                    ],
-                  ),
                   // SizedBox(
                   //   height: 10,
                   // ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      // Description of the card
-                      Flexible(
-                        child: Container(
-                          padding: EdgeInsets.all(5),
-                          color: noTitle == true
-                              ? Colors.black.withOpacity(0)
-                              : Colors.black.withOpacity(0.65),
-                          child: Text(
-                            widget.description,
-                            maxLines: 4,
-                            style: themeData.textTheme.caption,
-                          ),
+                  noTitle == true
+                      ? Container()
+                      : Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            // Description of the card
+                            Flexible(
+                              child: Container(
+                                padding: EdgeInsets.all(5),
+                                color: noTitle == true
+                                    ? Colors.black.withOpacity(0)
+                                    : Colors.black.withOpacity(0.65),
+                                child: Text(
+                                  widget.description,
+                                  maxLines: 4,
+                                  style: themeData.textTheme.caption,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                      ),
-                    ],
-                  ),
                   Spacer(),
+
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Opacity(
-                        opacity: 0.75,
-                        child: Container(
-                          width: 40,
-                          height: 40,
-                          decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              image: DecorationImage(
-                                fit: BoxFit.cover,
-                                image: AssetImage(widget.logo),
-                              )),
-                        ),
-                      ),
-                      Opacity(
-                        opacity: 0.75,
-                        child: Container(
-                          width: 40,
-                          height: 40,
-                          decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              image: DecorationImage(
-                                fit: BoxFit.cover,
-                                image: AssetImage(widget.logo2),
-                              )),
-                        ),
-                      ),
+                      // First Logo at bottom left of card
+                      widget.logo == ''
+                          ? Container()
+                          : Opacity(
+                              opacity: 0.75,
+                              child: Container(
+                                width: 40,
+                                height: 40,
+                                decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    image: DecorationImage(
+                                      fit: BoxFit.cover,
+                                      image: AssetImage(widget.logo),
+                                    )),
+                              ),
+                            ),
+                      // Second Logo at bottom left of card
+                      widget.logo2 == ''
+                          ? Container()
+                          : Opacity(
+                              opacity: 0.75,
+                              child: Container(
+                                width: 40,
+                                height: 40,
+                                decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    image: DecorationImage(
+                                      fit: BoxFit.cover,
+                                      image: AssetImage(widget.logo2),
+                                    )),
+                              ),
+                            ),
                       Spacer(),
                       // Arrow icon indicating to click
                       RotationTransition(

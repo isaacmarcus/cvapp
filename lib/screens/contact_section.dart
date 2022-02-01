@@ -6,9 +6,9 @@ import 'package:url_launcher/url_launcher.dart';
 import '../constants.dart';
 
 class ContactSection extends StatelessWidget {
-  final key;
+  final sectionKey;
 
-  ContactSection({required this.key});
+  ContactSection({required this.sectionKey});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class ContactSection extends StatelessWidget {
     var screenHeight = MediaQuery.of(context).size.height;
 
     return Container(
-      key: key,
+      key: sectionKey,
       width: screenWidth,
       child: Center(
         child: Padding(

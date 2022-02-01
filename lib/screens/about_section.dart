@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import '../constants.dart';
 
 class AboutSection extends StatefulWidget {
-  final key;
+  final sectionKey;
 
-  AboutSection({required this.key});
+  AboutSection({required this.sectionKey});
 
   @override
   State<AboutSection> createState() => _AboutSectionState();
@@ -20,7 +20,7 @@ class _AboutSectionState extends State<AboutSection> {
     var screenHeight = MediaQuery.of(context).size.height;
 
     return Container(
-      key: widget.key,
+      key: widget.sectionKey,
       width: screenWidth,
       // height: MediaQuery.of(context).size.height - kAppBarHeightDoubleL,
       child: Center(

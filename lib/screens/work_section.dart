@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import '../constants.dart';
 
 class WorkSection extends StatefulWidget {
-  final key;
+  final sectionKey;
 
-  WorkSection({required this.key});
+  WorkSection({required this.sectionKey});
 
   @override
   State<WorkSection> createState() => _WorkSectionState();
@@ -20,7 +20,7 @@ class _WorkSectionState extends State<WorkSection> {
 
     return Container(
       margin: EdgeInsets.zero,
-      key: widget.key,
+      key: widget.sectionKey,
       width: screenWidth,
       // height: MediaQuery.of(context).size.height - kAppBarHeightDoubleL,
       child: Center(
