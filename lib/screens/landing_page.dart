@@ -124,7 +124,7 @@ class _LandingPageState extends State<LandingPage>
             ),
           ),
           // Stacked Menu
-          // _buildDrawer(keyList),
+          _buildDrawer(keyList),
         ],
       ),
     );
