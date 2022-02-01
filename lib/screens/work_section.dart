@@ -50,7 +50,7 @@ class _WorkSectionState extends State<WorkSection> {
                   crossAxisCount: screenWidth >= 1080 ? 2 : 1,
                   children: <Widget>[
                     WorkCard(
-                      titleImage: 'assets/images/shooshoe_ss.PNG',
+                      titleImage: 'assets/images/shooshoe_ss.png',
                       link: "https://github.com/isaacmarcus/ShooShoeApp",
                       logo: 'assets/logos/android_logo.png',
                     ),
@@ -63,7 +63,7 @@ class _WorkSectionState extends State<WorkSection> {
                     ),
                     WorkCard(
                       title: "LinkTree Github Pages",
-                      titleImage: 'assets/images/lnktree_ss.PNG',
+                      titleImage: 'assets/images/lnktree_ss.png',
                       link: "https://github.com/isaacmarcus/lnkin",
                       description:
                           "Creating a HTML Clone of the popular LinkTree website",
@@ -72,7 +72,7 @@ class _WorkSectionState extends State<WorkSection> {
                     ),
                     WorkCard(
                       title: "DeTrack POD WebApp",
-                      titleImage: 'assets/images/detrack_ss.PNG',
+                      titleImage: 'assets/images/detrack_ss.png',
                       link: "https://github.com/isaacmarcus/DeTrack-POD-App",
                       description:
                           "A WebApp using APIs to download data from management system",
@@ -80,7 +80,7 @@ class _WorkSectionState extends State<WorkSection> {
                     ),
                     WorkCard(
                       title: "Flutter Portfolio WebApp",
-                      titleImage: 'assets/images/cvapp_ss.PNG',
+                      titleImage: 'assets/images/cvapp_ss.png',
                       link: "https://github.com/isaacmarcus/cvapp",
                       description:
                           "A WebApp introducing me and showcasing my works",
@@ -88,7 +88,7 @@ class _WorkSectionState extends State<WorkSection> {
                     ),
                     WorkCard(
                       title: "DGP Invoice Merger",
-                      titleImage: 'assets/images/dgpinv_ss.PNG',
+                      titleImage: 'assets/images/dgpinv_ss.png',
                       link: "https://github.com/isaacmarcus/DGPInvoicing",
                       description:
                           "A Python Desktop App to automate merging of pdf invoices",
