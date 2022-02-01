@@ -26,100 +26,97 @@ class _WorkSectionState extends State<WorkSection> {
       child: Center(
         child: Padding(
           padding: screenWidth >= 725 ? kMasterPaddingL : kMasterPaddingS,
-          child: Flexible(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Hero(
-                  tag: "work-title",
-                  child: Text(
-                    "Work",
-                    style: screenWidth >= 725
-                        ? themeData.textTheme.headline1
-                        : themeData.textTheme.headline2,
-                  ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Hero(
+                tag: "work-title",
+                child: Text(
+                  "Work",
+                  style: screenWidth >= 725
+                      ? themeData.textTheme.headline1
+                      : themeData.textTheme.headline2,
                 ),
-                SizedBox(
-                  height: 50,
+              ),
+              SizedBox(
+                height: 50,
+              ),
+              Container(
+                margin: EdgeInsets.zero,
+                child: GridView.count(
+                  childAspectRatio: 1.5,
+                  padding: EdgeInsets.zero,
+                  shrinkWrap: true,
+                  crossAxisCount: screenWidth >= 1080 ? 2 : 1,
+                  children: <Widget>[
+                    WorkCard(
+                      titleImage: 'assets/images/shooshoe_ss.PNG',
+                      link: "https://github.com/isaacmarcus/ShooShoeApp",
+                      logo: 'assets/logos/android_logo.png',
+                    ),
+                    WorkCard(
+                      title: "Moire Playground",
+                      titleImage: 'assets/images/moire_playground_ss.PNG',
+                      link: "https://github.com/isaacmarcus/MoirePlayground",
+                      description: "An exploration into the design of 'MOIRE'",
+                      logo: 'assets/logos/flutter_logo.png',
+                    ),
+                    WorkCard(
+                      title: "LinkTree Github Pages",
+                      titleImage: 'assets/images/lnktree_ss.PNG',
+                      link: "https://github.com/isaacmarcus/lnkin",
+                      description:
+                          "Creating a HTML Clone of the popular LinkTree website",
+                      logo: 'assets/logos/html_logo.png',
+                      logo2: 'assets/logos/css_logo.png',
+                    ),
+                    WorkCard(
+                      title: "DeTrack POD WebApp",
+                      titleImage: 'assets/images/detrack_ss.PNG',
+                      link: "https://github.com/isaacmarcus/DeTrack-POD-App",
+                      description:
+                          "A WebApp using APIs to download data from management system",
+                      logo: 'assets/logos/flutter_logo.png',
+                    ),
+                    WorkCard(
+                      title: "Flutter Portfolio WebApp",
+                      titleImage: 'assets/images/cvapp_ss.PNG',
+                      link: "https://github.com/isaacmarcus/cvapp",
+                      description:
+                          "A WebApp introducing me and showcasing my works",
+                      logo: 'assets/logos/flutter_logo.png',
+                    ),
+                    WorkCard(
+                      title: "DGP Invoice Merger",
+                      titleImage: 'assets/images/dgpinv_ss.PNG',
+                      link: "https://github.com/isaacmarcus/DGPInvoicing",
+                      description:
+                          "A Python Desktop App to automate merging of pdf invoices",
+                      logo: 'assets/logos/python_logo.png',
+                    ),
+                  ],
                 ),
-                Container(
-                  margin: EdgeInsets.zero,
-                  child: GridView.count(
-                    childAspectRatio: 1.5,
-                    padding: EdgeInsets.zero,
-                    shrinkWrap: true,
-                    crossAxisCount: screenWidth >= 1080 ? 2 : 1,
-                    children: <Widget>[
-                      WorkCard(
-                        titleImage: 'assets/images/shooshoe_ss.PNG',
-                        link: "https://github.com/isaacmarcus/ShooShoeApp",
-                        logo: 'assets/logos/android_logo.png',
-                      ),
-                      WorkCard(
-                        title: "Moire Playground",
-                        titleImage: 'assets/images/moire_playground_ss.PNG',
-                        link: "https://github.com/isaacmarcus/MoirePlayground",
-                        description:
-                            "An exploration into the design of 'MOIRE'",
-                        logo: 'assets/logos/flutter_logo.png',
-                      ),
-                      WorkCard(
-                        title: "LinkTree Github Pages",
-                        titleImage: 'assets/images/lnktree_ss.PNG',
-                        link: "https://github.com/isaacmarcus/lnkin",
-                        description:
-                            "Creating a HTML Clone of the popular LinkTree website",
-                        logo: 'assets/logos/html_logo.png',
-                        logo2: 'assets/logos/css_logo.png',
-                      ),
-                      WorkCard(
-                        title: "DeTrack POD WebApp",
-                        titleImage: 'assets/images/detrack_ss.PNG',
-                        link: "https://github.com/isaacmarcus/DeTrack-POD-App",
-                        description:
-                            "A WebApp using APIs to download data from management system",
-                        logo: 'assets/logos/flutter_logo.png',
-                      ),
-                      WorkCard(
-                        title: "Flutter Portfolio WebApp",
-                        titleImage: 'assets/images/cvapp_ss.PNG',
-                        link: "https://github.com/isaacmarcus/cvapp",
-                        description:
-                            "A WebApp introducing me and showcasing my works",
-                        logo: 'assets/logos/flutter_logo.png',
-                      ),
-                      WorkCard(
-                        title: "DGP Invoice Merger",
-                        titleImage: 'assets/images/dgpinv_ss.PNG',
-                        link: "https://github.com/isaacmarcus/DGPInvoicing",
-                        description:
-                            "A Python Desktop App to automate merging of pdf invoices",
-                        logo: 'assets/logos/python_logo.png',
-                      ),
-                    ],
-                  ),
-                ),
-                // WorkCard(
-                //   title: "",
-                //   titleImage: 'assets/images/shooshoe_ss.PNG',
-                //   link: "https://github.com/isaacmarcus/ShooShoeApp",
-                //   description: "",
-                // ),
-                // WorkCard(
-                //   title: "Moire Playground",
-                //   titleImage: 'assets/images/moire_playground_ss.PNG',
-                //   link: "https://github.com/isaacmarcus/MoirePlayground",
-                //   description: "An exploration into the design of 'MOIRE'",
-                // ),
-                // WorkCard(
-                //   title: "LinkTree Github Pages",
-                //   titleImage: 'assets/images/lnktree_ss.PNG',
-                //   link: "https://github.com/isaacmarcus/lnkin",
-                //   description:
-                //       "Creating a simple HTML Clone of the popular LinkTree website",
-                // ),
-              ],
-            ),
+              ),
+              // WorkCard(
+              //   title: "",
+              //   titleImage: 'assets/images/shooshoe_ss.PNG',
+              //   link: "https://github.com/isaacmarcus/ShooShoeApp",
+              //   description: "",
+              // ),
+              // WorkCard(
+              //   title: "Moire Playground",
+              //   titleImage: 'assets/images/moire_playground_ss.PNG',
+              //   link: "https://github.com/isaacmarcus/MoirePlayground",
+              //   description: "An exploration into the design of 'MOIRE'",
+              // ),
+              // WorkCard(
+              //   title: "LinkTree Github Pages",
+              //   titleImage: 'assets/images/lnktree_ss.PNG',
+              //   link: "https://github.com/isaacmarcus/lnkin",
+              //   description:
+              //       "Creating a simple HTML Clone of the popular LinkTree website",
+              // ),
+            ],
           ),
         ),
       ),

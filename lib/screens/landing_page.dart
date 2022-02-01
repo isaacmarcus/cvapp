@@ -176,29 +176,19 @@ class _LandingPageState extends State<LandingPage>
     return Padding(
       key: LandingPage.landingKey,
       padding: screenWidth >= 725 ? kMasterPaddingL : kMasterPaddingS,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          // Main title
-          Hero(
-            tag: "title",
-            child: Container(
-              width: screenWidth,
-              height: screenWidth >= 725
-                  ? screenHeight - kAppBarHeightDoubleL
-                  : screenHeight - kAppBarHeightDoubleS,
-              child: Center(
-                child: Text(
-                  "TECHNOLOGY, DESIGN, AUDIO",
-                  style: screenWidth >= 725
-                      ? themeData.textTheme.headline1
-                      : themeData.textTheme.headline2,
-                ),
-              ),
-            ),
-          )
-        ],
+      child: Container(
+        width: screenWidth,
+        height: screenWidth >= 725
+            ? screenHeight - kAppBarHeightDoubleL
+            : screenHeight - kAppBarHeightDoubleS,
+        child: Center(
+          child: Text(
+            "TECHNOLOGY, DESIGN, AUDIO",
+            style: screenWidth >= 725
+                ? themeData.textTheme.headline1
+                : themeData.textTheme.headline2,
+          ),
+        ),
       ),
     );
   }

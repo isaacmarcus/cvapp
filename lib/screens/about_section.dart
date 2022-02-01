@@ -28,25 +28,23 @@ class _AboutSectionState extends State<AboutSection> {
           padding: screenWidth >= 725
               ? EdgeInsets.all(screenWidth * 0.1)
               : kMasterPaddingS,
-          child: Flexible(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Hero(
-                  tag: "about-title",
-                  child: Text(
-                    "About Me",
-                    style: screenWidth >= 725
-                        ? themeData.textTheme.headline1
-                        : themeData.textTheme.headline2,
-                  ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Hero(
+                tag: "about-title",
+                child: Text(
+                  "About Me",
+                  style: screenWidth >= 725
+                      ? themeData.textTheme.headline1
+                      : themeData.textTheme.headline2,
                 ),
-                SizedBox(
-                  height: 50,
-                ),
-                screenWidth >= 725 ? _rowBio(context) : _colBio(context),
-              ],
-            ),
+              ),
+              SizedBox(
+                height: 50,
+              ),
+              screenWidth >= 725 ? _rowBio(context) : _colBio(context),
+            ],
           ),
         ),
       ),
