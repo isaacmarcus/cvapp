@@ -96,7 +96,9 @@ class ContactSection extends StatelessWidget {
               ),
               Text(
                 "Contact me at isaac.marcus.lam@gmail.com or connect with me below!",
-                style: themeData.textTheme.headline4,
+                style: screenWidth <= 725
+                    ? themeData.textTheme.headline4
+                    : themeData.textTheme.bodyText2,
                 textAlign: TextAlign.center,
               ),
               SizedBox(
