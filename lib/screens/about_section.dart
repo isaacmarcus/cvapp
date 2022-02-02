@@ -103,7 +103,7 @@ class _AboutSectionState extends State<AboutSection> {
         // Text description for bio/about me
         Text(
           kBio,
-          style: themeData.textTheme.bodyText1,
+          style: themeData.textTheme.bodyText2,
           maxLines: 50,
           textAlign: TextAlign.center,
         ),

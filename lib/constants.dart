@@ -20,6 +20,8 @@ const kSymPadSmall = EdgeInsets.symmetric(horizontal: 28);
 const kScreenWidthL = 1080;
 const kScreenWidthM = 725;
 const kScreenWidthS = 650;
+const double kLogoSizeS = 20;
+const double kLogoSizeL = 40;
 
 const kAnimationDuration = Duration(milliseconds: 300);
 
@@ -62,10 +64,33 @@ ThemeData themeData = ThemeData(
       fontSize: 40,
       fontWeight: FontWeight.w500,
     ),
+    headline3: TextStyle(
+      color: Color(0xFFeeeeee),
+      fontSize: 16,
+      fontWeight: FontWeight.w300,
+    ),
+    // Used for card desc small
+    headline4: TextStyle(
+      color: Color(0xFFeeeeee),
+      fontSize: 12,
+      fontWeight: FontWeight.w200,
+    ),
     headline5: TextStyle(
       color: Color(0xFFeeeeee),
       fontSize: 18,
       fontWeight: FontWeight.w200,
+    ),
+    subtitle1: TextStyle(
+      color: Color(0xFFeeeeee),
+      fontSize: 16,
+      fontWeight: FontWeight.w300,
+      height: 1.5,
+    ),
+    subtitle2: TextStyle(
+      color: Color(0xFFeeeeee),
+      fontSize: 12,
+      fontWeight: FontWeight.w300,
+      height: 1.5,
     ),
     bodyText1: TextStyle(
       color: Color(0xFFeeeeee),
@@ -73,12 +98,14 @@ ThemeData themeData = ThemeData(
       fontWeight: FontWeight.w300,
       height: 1.5,
     ),
+    // Used for card Title Large
     bodyText2: TextStyle(
       color: Color(0xFFeeeeee),
-      fontSize: 22,
+      fontSize: 16,
       fontWeight: FontWeight.w300,
       height: 1.5,
     ),
+    // Used for card desc large
     caption: TextStyle(
       color: Color(0xFFeeeeee),
       fontSize: 16,

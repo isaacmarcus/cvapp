@@ -107,14 +107,13 @@ class _WorkCardState extends State<WorkCard>
                                   : Colors.black.withOpacity(0.65),
                               child: Text(
                                 widget.title,
-                                style: themeData.textTheme.bodyText2,
+                                style: screenWidth <= 725
+                                    ? themeData.textTheme.subtitle2
+                                    : themeData.textTheme.subtitle1,
                               ),
                             ),
                           ],
                         ),
-                  // SizedBox(
-                  //   height: 10,
-                  // ),
                   noTitle == true
                       ? Container()
                       : Row(
@@ -131,14 +130,15 @@ class _WorkCardState extends State<WorkCard>
                                 child: Text(
                                   widget.description,
                                   maxLines: 4,
-                                  style: themeData.textTheme.caption,
+                                  style: screenWidth <= 725
+                                      ? themeData.textTheme.headline4
+                                      : themeData.textTheme.caption,
                                 ),
                               ),
                             ),
                           ],
                         ),
                   Spacer(),
-
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -148,8 +148,12 @@ class _WorkCardState extends State<WorkCard>
                           : Opacity(
                               opacity: 0.75,
                               child: Container(
-                                width: 40,
-                                height: 40,
+                                width: screenWidth <= 725
+                                    ? kLogoSizeS
+                                    : kLogoSizeL,
+                                height: screenWidth <= 725
+                                    ? kLogoSizeS
+                                    : kLogoSizeL,
                                 decoration: BoxDecoration(
                                     shape: BoxShape.circle,
                                     image: DecorationImage(
@@ -164,8 +168,12 @@ class _WorkCardState extends State<WorkCard>
                           : Opacity(
                               opacity: 0.75,
                               child: Container(
-                                width: 40,
-                                height: 40,
+                                width: screenWidth <= 725
+                                    ? kLogoSizeS
+                                    : kLogoSizeL,
+                                height: screenWidth <= 725
+                                    ? kLogoSizeS
+                                    : kLogoSizeL,
                                 decoration: BoxDecoration(
                                     shape: BoxShape.circle,
                                     image: DecorationImage(
@@ -181,7 +189,7 @@ class _WorkCardState extends State<WorkCard>
                             Tween(begin: 0.0, end: 0.25).animate(_controller),
                         child: Icon(
                           Icons.arrow_forward_rounded,
-                          size: 40,
+                          size: screenWidth <= 725 ? kLogoSizeS : kLogoSizeL,
                         ),
                       ),
                     ],

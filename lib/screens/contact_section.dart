@@ -87,7 +87,9 @@ class ContactSection extends StatelessWidget {
               ),
               Text(
                 "Any Enquiries",
-                style: themeData.textTheme.headline2,
+                style: screenWidth <= 725
+                    ? themeData.textTheme.bodyText1
+                    : themeData.textTheme.headline2,
               ),
               SizedBox(
                 height: 10,
