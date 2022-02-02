@@ -20,8 +20,11 @@ const kSymPadSmall = EdgeInsets.symmetric(horizontal: 28);
 const kScreenWidthL = 1080;
 const kScreenWidthM = 725;
 const kScreenWidthS = 650;
-const double kLogoSizeS = 20;
+const double kLogoSizeS = 25;
 const double kLogoSizeL = 40;
+
+const kCardPaddingL = EdgeInsets.fromLTRB(20, 15, 20, 20);
+const kCardPaddingS = EdgeInsets.fromLTRB(15, 10, 15, 15);
 
 const kAnimationDuration = Duration(milliseconds: 300);
 

@@ -90,7 +90,7 @@ class _WorkCardState extends State<WorkCard>
                   )),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(20, 15, 20, 20),
+              padding: screenWidth <= 725 ? kCardPaddingS : kCardPaddingL,
               child: Column(
                 children: [
                   noTitle == true

@@ -94,6 +94,13 @@ class _WorkSectionState extends State<WorkSection> {
                           "A Python Desktop App to automate merging of pdf invoices",
                       logo: 'assets/logos/python_logo.png',
                     ),
+                    WorkCard(
+                      title: "Python Webcrawler",
+                      titleImage: 'assets/images/crawler_ss.png',
+                      link: "https://github.com/isaacmarcus/dg_crawler37",
+                      description: "A Python script to webcrawl specific info",
+                      logo: 'assets/logos/python_logo.png',
+                    ),
                   ],
                 ),
               ),
