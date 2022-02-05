@@ -87,6 +87,13 @@ class _WorkSectionState extends State<WorkSection> {
                       logo: 'assets/logos/flutter_logo.png',
                     ),
                     WorkCard(
+                      title: "DGP Operations App",
+                      titleImage: 'assets/images/dgp_ops_ss.png',
+                      link: "https://github.com/isaacmarcus/dgp-ops-app",
+                      description: "A Cross-Platform App used for operations",
+                      logo: 'assets/logos/flutter_logo.png',
+                    ),
+                    WorkCard(
                       title: "DGP Invoice Merger",
                       titleImage: 'assets/images/dgpinv_ss.png',
                       link: "https://github.com/isaacmarcus/DGPInvoicing",
