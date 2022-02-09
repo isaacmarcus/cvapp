@@ -18,7 +18,4 @@ Head over to https://isaacmarcus.github.io/cvapp/ to explore and take a look at 
 - flutter_native_splash: ^1.2.0
 - animated_splash_screen: ^1.1.0
 - url_launcher: ^6.0.17
-
-## Portfolio Preview
-![preview_img](https://github.com/isaacmarcus/cvapp/blob/main/assets/images/cvapp_ss.png?raw=true)
  
