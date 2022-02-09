@@ -108,6 +108,15 @@ class _WorkSectionState extends State<WorkSection> {
                       description: "A Python script to webcrawl specific info",
                       logo: 'assets/logos/python_logo.png',
                     ),
+                    WorkCard(
+                      title: "JMap Wireframe",
+                      titleImage: 'assets/images/jmap_ss.png',
+                      link: "https://github.com/isaacmarcus/JMap",
+                      description:
+                          "An interactive Framer Wireframe App for a mapping tool",
+                      logo: 'assets/logos/framer_logo.png',
+                      logo2: 'assets/logos/coffeescript_logo.png',
+                    ),
                   ],
                 ),
               ),
